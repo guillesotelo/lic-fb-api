@@ -29,7 +29,7 @@ const serviceSchema = new mongoose.Schema({
         type: Date
     },
     dates: {
-        type: string
+        type: String
     },
     startTime: {
         type: Number
