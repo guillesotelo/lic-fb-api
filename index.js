@@ -24,6 +24,10 @@ app.use((err, _, res, __) => {
   res.status(500).send("Something broke!")
 })
 
+app.get('/', (_, res) => {
+  res.status(200).send('LIC-FB API [Status: OK]')
+})
+
 const PORT = process.env.PORT || 5000
 
 // if(process.env.NODE_ENV === 'production') {
