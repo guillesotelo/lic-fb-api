@@ -13,7 +13,7 @@ const serviceSchema = new mongoose.Schema({
     discount: {
         type: String
     },
-    day: {
+    days: {
         type: String
     },
     time: {
@@ -25,17 +25,14 @@ const serviceSchema = new mongoose.Schema({
     description: {
         type: String
     },
-    date: {
-        type: Date
-    },
-    dates: {
+    dateObjects: {
         type: String
     },
     startTime: {
-        type: Number
+        type: String
     },
     endTime: {
-        type: Number
+        type: String
     },
     isEvent: {
         type: Boolean

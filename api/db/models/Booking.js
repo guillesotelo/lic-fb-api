@@ -7,42 +7,46 @@ const bookingSchema = new mongoose.Schema({
     service: {
         type: String
     },
-    fullname: {
+    serviceName: {
         type: String
     },
-    price: {
-        type: Number
-    },
-    discount: {
+    fullname: {
         type: String
     },
     email: {
         type: String
     },
-    country: {
-        type: String
-    },
     phone: {
         type: String
     },
-    date: {
-        type: Date
+    country: {
+        type: String
+    },
+    city: {
+        type: String
+    },
+    age: {
+        type: Number
+    },
+    quantity: {
+        type: Number,
+        default: 1
+    },
+    price: {
+        type: Number
+    },
+    totalPrice: {
+        type: Number
+    },
+    discount: {
+        type: String
+    },
+    dateObjects: {
+        type: String
     },
     isPaid: {
         type: Boolean,
         default: false
-    },
-    startTime: {
-        type: Number
-    },
-    endTime: {
-        type: Number
-    },
-    isEvent: {
-        type: Boolean
-    },
-    eventId: {
-        type: String
     },
     otherData: {
         type: String
