@@ -16,9 +16,6 @@ const serviceSchema = new mongoose.Schema({
     days: {
         type: String
     },
-    time: {
-        type: String
-    },
     image: {
         type: String
     },

@@ -4,6 +4,7 @@ const Booking = require("./Booking");
 const Event = require("./Event");
 const Service = require("./Service");
 const MailList = require("./MailList");
+const Message = require("./Message");
 
 module.exports = {
   User,
@@ -12,4 +13,5 @@ module.exports = {
   Event,
   Service,
   MailList,
+  Message,
 };
