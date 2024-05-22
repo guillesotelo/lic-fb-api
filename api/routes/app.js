@@ -2,7 +2,7 @@ const dotenv = require('dotenv')
 const express = require('express')
 const router = express.Router()
 const { Subscription, MailList, Message } = require('../db/models')
-const { sendContactEmail } = require('../helpers/mailer')
+const { sendContactEmail, sendNewMessageEmail } = require('../helpers/mailer')
 const { encrypt, decrypt } = require('../helpers')
 const { REACT_APP_URL } = process.env
 const jwt = require('jsonwebtoken')
@@ -47,7 +47,10 @@ router.post('/updateMessageSession', async (req, res, next) => {
         let session = null
 
         if (_id) session = await Message.findByIdAndUpdate(_id, { messages }, { returnDocument: "after", useFindAndModify: false })
-        else session = await Message.create({ messages })
+        else {
+            session = await Message.create({ messages })
+            await sendNewMessageEmail()
+        }
 
         res.status(201).json(session)
     } catch (err) {

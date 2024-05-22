@@ -1,5 +1,12 @@
 const nodemailer = require('nodemailer');
-const { purchaseEmail, purchaseCoachingEmail, purchaseEntrenamientoEmail, bookingUpdateEmail, contactEmail } = require('./emailTemplates');
+const {
+  newBookingEmail,
+  newBookingEmailForPacient,
+  bookingUpdateEmail,
+  contactEmail,
+  newMessage
+} = require('./emailTemplates');
+const { google, outlook, office365, yahoo, ics } = require("calendar-link");
 require('dotenv').config();
 
 const transporter = nodemailer.createTransport({
@@ -17,42 +24,43 @@ transporter.verify().then(() => {
 })
 
 
-const sendPurchaseEmail = async (username, data, to) => {
-  await transporter.sendMail({
-    from: `"ANGELITA" <${process.env.EMAIL}>`,
-    to,
-    subject: `Gracias por tu compra`,
-    html: purchaseEmail(data, username)
-  }).catch((err) => {
-    console.error('Something went wrong!', err)
-  })
-}
+const sendnewBookingEmail = async (data) => {
+  const dates = JSON.parse(data.dateObjects)
 
-const sendPurchaseCoachingEmail = async (username, data, to) => {
-  await transporter.sendMail({
-    from: `"ANGELITA" <${process.env.EMAIL}>`,
-    to,
-    subject: `Gracias por tu compra`,
-    html: purchaseCoachingEmail(data, username)
-  }).catch((err) => {
-    console.error('Something went wrong!', err)
+  const events = dates.map(date => {
+    return {
+      title: `${data.serviceName} - Lic. Florencia Bernero`,
+      description: `Si necesitas hacer un cambio o cancelación, ponete en contacto a traves del mail: florenciabernero.psi@gmail.com`,
+      start: new Date(date),
+      duration: [1, "hour"],
+      location: 'Online (Google Meet)'
+    }
   })
-}
 
-const sendPurchaseEntrenamientoEmail = async (username, data, to) => {
+  const calendarLinks = events.map(event => google(event))
+
   await transporter.sendMail({
-    from: `"ANGELITA" <${process.env.EMAIL}>`,
-    to,
-    subject: `Gracias por tu compra`,
-    html: purchaseEntrenamientoEmail(data, username)
+    from: `"Lic. Florencia Bernero" <${process.env.EMAIL}>`,
+    to: "guille.sotelo.cloud@gmail.com",
+    subject: `Nueva reserva: ${data.serviceName}`,
+    html: newBookingEmail({ ...data, calendarLinks })
   }).catch((err) => {
-    console.error('Something went wrong!', err)
+    console.error('Error in sendnewBookingEmail', err)
+  })
+
+  await transporter.sendMail({
+    from: `"Lic. Florencia Bernero (no-reply)" <${process.env.EMAIL}>`,
+    to: data.email,
+    subject: `Gracias por tu reserva!`,
+    html: newBookingEmailForPacient({ ...data, calendarLinks })
+  }).catch((err) => {
+    console.error('Error in sendnewBookingEmail', err)
   })
 }
 
 const sendBookingUpdateEmail = async (username, data, to) => {
   await transporter.sendMail({
-    from: `"ANGELITA" <${process.env.EMAIL}>`,
+    from: `"Lic. Florencia Bernero" <${process.env.EMAIL}>`,
     to,
     subject: `Cambios en tu reserva`,
     html: bookingUpdateEmail(data, username)
@@ -63,7 +71,7 @@ const sendBookingUpdateEmail = async (username, data, to) => {
 
 const sendContactEmail = async (username, data, to) => {
   await transporter.sendMail({
-    from: `"ANGELITA" <${process.env.EMAIL}>`,
+    from: `"Lic. Florencia Bernero" <${process.env.EMAIL}>`,
     to,
     subject: `Tienes un nuevo mensaje`,
     html: contactEmail(data, username)
@@ -72,12 +80,22 @@ const sendContactEmail = async (username, data, to) => {
   })
 }
 
+const sendNewMessageEmail = async () => {
+  await transporter.sendMail({
+    from: `"Lic. Florencia Bernero" <${process.env.EMAIL}>`,
+    to: "guille.sotelo.cloud@gmail.com",
+    subject: `Tenés nuevos mensajes desde la web`,
+    html: newMessage()
+  }).catch((err) => {
+    console.error('Something went wrong!', err)
+  })
+}
+
 
 module.exports = {
   transporter,
-  sendPurchaseEmail,
-  sendPurchaseCoachingEmail,
-  sendPurchaseEntrenamientoEmail,
+  sendnewBookingEmail,
   sendBookingUpdateEmail,
   sendContactEmail,
+  sendNewMessageEmail,
 };

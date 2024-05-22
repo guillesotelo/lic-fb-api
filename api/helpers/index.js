@@ -29,8 +29,28 @@ const verifyToken = (req, res, next) => {
     } else res.sendStatus(403)
 }
 
+const getDate = (dateString) => {
+    if (dateString) {
+        const date = new Date(dateString)
+        if (date.getHours() === 24) date.setHours(0)
+        return date.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: '2-digit', hour: '2-digit', minute: '2-digit' })
+    }
+}
+
+const parsePrice = (amount) => {
+    if (!amount) return ''
+    let amountString = ''
+    String(amount).split('').reverse().forEach((letter, i) => {
+        if (i !== 0 && i % 3 === 0) amountString += `,`
+        amountString += `${letter}`
+    })
+    return `$ ${amountString.split('').reverse().join('')}`
+}
+
 module.exports = {
     encrypt,
     decrypt,
-    verifyToken
+    verifyToken,
+    parsePrice,
+    getDate
 }
