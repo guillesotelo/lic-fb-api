@@ -41,7 +41,7 @@ const sendnewBookingEmail = async (data) => {
 
   await transporter.sendMail({
     from: `"Lic. Florencia Bernero" <${process.env.EMAIL}>`,
-    to: "guille.sotelo.cloud@gmail.com",
+    to: ["guille.sotelo.cloud@gmail.com", "florenciabernero.psi@gmail.com"],
     subject: `Nueva reserva: ${data.serviceName}`,
     html: newBookingEmail({ ...data, calendarLinks })
   }).catch((err) => {
@@ -83,8 +83,8 @@ const sendContactEmail = async (username, data, to) => {
 const sendNewMessageEmail = async () => {
   await transporter.sendMail({
     from: `"Lic. Florencia Bernero" <${process.env.EMAIL}>`,
-    to: "guille.sotelo.cloud@gmail.com",
-    subject: `Tenés nuevos mensajes desde la web`,
+    to: ["guille.sotelo.cloud@gmail.com", "florenciabernero.psi@gmail.com"],
+    subject: `Nuevos mensajes desde la web`,
     html: newMessage()
   }).catch((err) => {
     console.error('Something went wrong!', err)
