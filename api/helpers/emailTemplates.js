@@ -1820,37 +1820,37 @@ const newMessage = () => `
 
 
                     <div class="u-row-container" style="padding: 0px;background-color: transparent">
-                        <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #b0bcebad;">
-                            <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
-                                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #b0bcebad;"><![endif]-->
+                    <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #b0bcebad;">
+                        <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
+                            <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #b0bcebad;"><![endif]-->
 
-                                <!--[if (mso)|(IE)]><td align="center" width="300" style="width: 300px;padding: 20px 20px 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                                <div class="u-col u-col-50" style="max-width: 320px;min-width: 300px;display: table-cell;vertical-align: top;">
-                                    <div style="height: 100%;width: 100% !important;">
-                                        <!--[if (!mso)&(!IE)]><!-->
-                                        <div style="box-sizing: border-box; height: 100%; padding: 20px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-                                            <!--<![endif]-->
+                            <!--[if (mso)|(IE)]><td align="center" width="300" style="width: 300px;padding: 20px 20px 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
+                            <div class="u-col u-col-50" style="max-width: 320px;min-width: 300px;display: table-cell;vertical-align: top;">
+                                <div style="height: 100%;width: 100% !important;">
+                                    <!--[if (!mso)&(!IE)]><!-->
+                                    <div style="box-sizing: border-box; height: 100%; padding: 20px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
+                                        <!--<![endif]-->
 
-                                            <table style="font-family: 'Open Sans', sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                                                <tbody>
-                                                    <tr>
-                                                        <td style="overflow-wrap:break-word;word-break:break-word;padding: 18px;font-family: 'Open Sans', sans-serif;" align="left">
+                                        <table style="font-family: 'Open Sans', sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="overflow-wrap:break-word;word-break:break-word;padding: 18px;font-family: 'Open Sans', sans-serif;" align="left">
 
-                                                            <p style="line-height: 140%; font-size: 14px; text-align: center;"><span style="font-size: 14px; line-height: 19.6px;"><span style=" color: #3d3d3d; font-size: 14px; line-height: 19.6px;"><span style="line-height: 19.6px; font-size: 14px;">Lic. Florencia Bernero @ 2024</span></span>
-                                                                </span>
-                                                            </p>
+                                                        <p style="line-height: 140%; font-size: 14px; text-align: center;"><span style="font-size: 14px; line-height: 19.6px;"><span style=" color: #3d3d3d; font-size: 14px; line-height: 19.6px;"><span style="line-height: 19.6px; font-size: 14px;">Lic. Florencia Bernero @ 2024</span></span>
+                                                            </span>
+                                                        </p>
 
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
 
-                                        </div>
                                     </div>
-
                                 </div>
+
                             </div>
                         </div>
+                    </div>
 
 
 
